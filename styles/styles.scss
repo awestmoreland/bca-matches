@@ -1,0 +1,113 @@
+html,
+body
+{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5625vw;
+  @media (min-width: 641px) {
+    font-size: 0.625vw;
+  }
+  @media (min-width: 801px) {
+    font-size: 5px;
+  }
+}
+
+h1 {
+  display: none;
+}
+
+section {
+  padding: 1em;
+  border-bottom: solid 1px #ccc;
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    &:after {
+      content: '';
+      width: 0;
+      height: 0;
+      border: solid 0.75em transparent;
+      border-left-color: inherit;
+      border-right: none;
+      transform: rotate(90deg);
+      transition: transform 0.25s ease-in-out;
+    }
+    &.expanded {
+      &::after {
+        transform: rotate(-90deg);
+      }
+    }
+  }
+}
+
+
+table {
+  width: 100%;
+  th,
+  td
+  {
+    white-space: nowrap;
+    text-align: left;
+    &:nth-child(n+2) {
+      padding: 0 1em;
+    }
+  }
+  th {
+    font-weight: bold;
+  }
+}
+
+#season-data {
+  display: none;
+}
+
+#season {
+  font-size: 2.25em;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  @media (min-width: 641px) {
+    font-size: 3.5em;
+  }
+}
+
+.weeks {
+  display: none;
+  .expanded ~ & {
+    display: block;
+  }
+}
+.week {
+  &.past-week {
+  }
+  &.future-week {
+  }
+}
+
+.card-header {
+  background: rgba(0,0,0,0.15);
+  padding: 0.5em 1em;
+  margin: 0.5em -1em;
+  font-weight: bold;
+}
+
+
+#archive {
+  // background: #f5f5f5;
+}
+#next {
+}
+#future {
+  // background: lightblue;
+}
+
+
+
+

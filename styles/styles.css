@@ -1,0 +1,97 @@
+html,
+body {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5625vw;
+}
+@media (min-width: 641px) {
+  body {
+    font-size: 0.625vw;
+  }
+}
+@media (min-width: 801px) {
+  body {
+    font-size: 5px;
+  }
+}
+
+h1 {
+  display: none;
+}
+
+section {
+  padding: 1em;
+  border-bottom: solid 1px #ccc;
+}
+section header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+section header:after {
+  content: "";
+  width: 0;
+  height: 0;
+  border: solid 0.75em transparent;
+  border-left-color: inherit;
+  border-right: none;
+  transform: rotate(90deg);
+  transition: transform 0.25s ease-in-out;
+}
+section header.expanded::after {
+  transform: rotate(-90deg);
+}
+
+table {
+  width: 100%;
+}
+table th,
+table td {
+  white-space: nowrap;
+  text-align: left;
+}
+table th:nth-child(n+2),
+table td:nth-child(n+2) {
+  padding: 0 1em;
+}
+table th {
+  font-weight: bold;
+}
+
+#season-data {
+  display: none;
+}
+
+#season {
+  font-size: 2.25em;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+@media (min-width: 641px) {
+  #season {
+    font-size: 3.5em;
+  }
+}
+
+.weeks {
+  display: none;
+}
+.expanded ~ .weeks {
+  display: block;
+}
+
+.card-header {
+  background: rgba(0, 0, 0, 0.15);
+  padding: 0.5em 1em;
+  margin: 0.5em -1em;
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22styles.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22AAAA;AAAA;EAGE;EACA;EACA;;;AAGF;EACE;EACA;;AACA;EAHF;IAII;;;AAEF;EANF;IAOI;;;;AAIJ;EACE;;;AAGF;EACE;EACA;;AACA;EACE;EACA;EACA;EACA;;AACA;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAGA;EACE;;;AAOR;EACE;;AACA;AAAA;EAGE;EACA;;AACA;AAAA;EACE;;AAGJ;EACE;;;AAIJ;EACE;;;AAGF;EACE;EACA;EACA;EACA;;AACA;EALF;IAMI;;;;AAIJ;EACE;;AACA;EACE;;;AAUJ;EACE;EACA;EACA;EACA%22,%22file%22:%22styles.css%22%7D */
