@@ -30,34 +30,76 @@
 
     <div id="season-data"></div>
 
-    <div id="season">
-      <section id="archive">
+    <main>
+
+      <div id="season">
+        <section id="archive">
+          <header>
+            <h2>Previous Matches</h2>
+          </header>
+          <div class="weeks">
+
+          </div>
+        </section>
+
+        <section id="next">
+          <header class="expanded">
+            <h2>Latest Match</h2>
+          </header>
+          <div class="weeks">
+
+          </div>
+        </section>
+
+        <section id="future">
+          <header>
+            <h2>Upcoming Matches</h2>
+          </header>
+          <div class="weeks">
+
+          </div>
+        </section>
+      </div>
+
+
+      <div id="race-calculator">
         <header>
-          <h2>Previous Matches</h2>
+          <h2>
+            Race Calculator
+          </h2>
+          <h3>
+            Enter player Fargo ratings
+          </h3>
         </header>
-        <div class="weeks">
+        <form>
+          <div class="fieldset">
+            <label for="player1">Player 1</label>
+            <input
+              type="number"
+              id="player1"
+              name="player1"
+              min="0"
+              max="999"
+              step="1"
+              value=""
+            >
+          </div>
+          <div class="fieldset">
+            <label for="player2">Player 2</label>
+            <input
+              type="number"
+              id="player2"
+              name="player2"
+              min="0"
+              max="999"
+              step="1"
+              value=""
+            >
+          </div>
+          <!-- <button type="submit">Calculate</button> -->
+      </div>
 
-        </div>
-      </section>
-
-      <section id="next">
-        <header class="expanded">
-          <h2>Latest Match</h2>
-        </header>
-        <div class="weeks">
-
-        </div>
-      </section>
-
-      <section id="future">
-        <header>
-          <h2>Upcoming Matches</h2>
-        </header>
-        <div class="weeks">
-
-        </div>
-      </section>
-    </div>
+    </main>
 
     <script
       src="https://code.jquery.com/jquery-3.6.3.min.js"
