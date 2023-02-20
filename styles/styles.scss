@@ -18,11 +18,19 @@ body {
 }
 
 footer {
-  padding: 2em 1em 1em;
-  font-size: 1.5em;
+  padding: 3em 1.5em 1.5em;
+  p {
+    font-size: 1.5em;
+    small {
+      font-size: 0.75em;
+    }
+  }
   @media (min-width: 641px) {
     text-align: center;
-    font-size: 2em;
+    padding: 4em 2em 2em;
+    p {
+      font-size: 2em;
+    }
   }
 }
 
@@ -70,6 +78,24 @@ table {
   }
   th {
     font-weight: bold;
+  }
+  td[class^="location"] {
+    &::before {
+      display: inline-block;
+      margin-right: 0.5em;
+      color: blue;
+    }
+    &.location-west::before {
+      content: '\2190';
+      color: blue;
+    }
+    &.location-east::before {
+      content: '\2192';
+      color: red;
+    }
+    &.location-tbd::before {
+      content: '\2191';
+    }
   }
 }
 

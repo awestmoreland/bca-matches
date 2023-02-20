@@ -18,13 +18,19 @@ $(function () {
         cellText = $(this).text();
         $(this).text(cellText.replace(' Team', '').replace('Play ', ''));
         if (~cellText.indexOf("Eastside")) {
-          $(this).text('East');
+          $(this)
+            .addClass('location-east')
+            .text('East');
         }
         if (~cellText.indexOf("Sands West")) {
-          $(this).text('West');
+          $(this)
+            .text('West')
+            .addClass('location-west');
         }
         if (~cellText.indexOf("Make-Up")) {
-          $(this).text('Make-up');
+          $(this)
+            .text('Make-up')
+            .addClass('location-tbd');
         }
       });
     });
