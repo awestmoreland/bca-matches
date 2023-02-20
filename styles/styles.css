@@ -117,7 +117,7 @@ h1 {
 #season .weeks {
   display: none;
 }
-.expanded ~ #season .weeks {
+#season .expanded ~ .weeks {
   display: block;
 }
 #season .card-header {
@@ -126,24 +126,18 @@ h1 {
   margin: 0.5em -1em;
   font-weight: bold;
 }
-#race-calculator form {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+#race-calculator {
+  text-align: center;
 }
-#race-calculator form .fieldset {
-  display: flex;
-  gap: 0.5em;
+#race-calculator .form .entry-fields {
+  margin-inline: auto;
 }
-#race-calculator form label {
+#race-calculator .form label {
   font-size: 2em;
   font-weight: bold;
 }
-#race-calculator form label[for$="2"] {
-  order: 10;
-}
-#race-calculator form input {
+#race-calculator .form input {
   font-size: 1.5em;
 }
 
-/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22styles.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22;AAAA;AAAA;EAGE;EACA;EACA;;;AAGF;EACE;EACA;;AACA;EAHF;IAII;;;AAEF;EANF;IAOI;;;;AAIJ;EACE;EACA;EACA;EACA;;AACA;EALF;IAMI;;;;AAKJ;EACE;;AACA;EACE;;AACA;EACE;;AAGJ;EARF;IASI;IACA;;EACA;IACE;;;;AAKN;EACE;;;AAGF;EACE;;;AAMA;EACE;EACA;;AACA;EACE;EACA;EACA;EACA;;AACA;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAGA;EACE;;AAOR;EACE;;AACA;AAAA;EAGE;EACA;;AACA;AAAA;EACE;;AAGJ;EACE;;AAGA;EACE;EACA;EACA;;AAEF;EACE;EACA;;AAEF;EACE;EACA;;AAEF;EACE;;AAKN;EACE;;AACA;EACE;;AAUJ;EACE;EACA;EACA;EACA;;AAkBF;EACE;EACA;EACA;;AACA;EACE;EACA;;AAGF;EACE;EACA;;AACA;EACE;;AAGJ;EACE%22,%22file%22:%22styles.css%22%7D */
+/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22styles.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22;AAAA;AAAA;EAGE;EACA;EACA;;;AAGF;EACE;EACA;;AACA;EAHF;IAII;;;AAEF;EANF;IAOI;;;;AAIJ;EACE;EACA;EACA;EACA;;AACA;EALF;IAMI;;;;AAKJ;EACE;;AACA;EACE;;AACA;EACE;;AAGJ;EARF;IASI;IACA;;EACA;IACE;;;;AAKN;EACE;;;AAGF;EACE;;;AAMA;EACE;EACA;;AACA;EACE;EACA;EACA;EACA;;AACA;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAGA;EACE;;AAOR;EACE;;AACA;AAAA;EAGE;EACA;;AACA;AAAA;EACE;;AAGJ;EACE;;AAGA;EACE;EACA;EACA;;AAEF;EACE;EACA;;AAEF;EACE;EACA;;AAEF;EACE;;AAKN;EACE;;AAEF;EACE;;AASF;EACE;EACA;EACA;EACA;;AAgBJ;EAEE;;AAKE;EACE;;AAEF;EACE;EACA;;AAEF;EACE%22,%22file%22:%22styles.css%22%7D */

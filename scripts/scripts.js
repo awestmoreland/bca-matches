@@ -73,4 +73,56 @@ $(function () {
   });
 
 
+  // Calculate race
+  // ==========================================
+
+  var $raceCalc = $('#race-calculator');
+  var $p1rate = $('#player1', $raceCalc);
+  var $p1race = $('#player1race', $raceCalc); // read-only field for result
+  var $p2rate = $('#player2', $raceCalc);
+  var $p2race = $('#player2race', $raceCalc); // read-only field for result
+
+  // On-change, call raceCalc()
+  $p1rate.on('change', raceCalc);
+  $p2rate.on('change', raceCalc);
+
+
+  function raceCalc() {
+
+    // if either rating is blank, or less than zero, return
+    if ($p1rate.val() == '' || $p2rate.val() == '' || $p1rate.val() < 0 || $p2rate.val() < 0) {
+      return;
+    }
+
+    // Get player ratings
+    p1rate = $p1rate.val();
+    p2rate = $p2rate.val();
+
+    // Choose higher rating
+    if (p1rate >= p2rate) { // if ratings are equal, use p1rate
+      $p1rate.addClass('hi');
+      $p2rate.addClass('lo');
+      hirate = p1rate;
+      lorate = p2rate;
+      console.log("p1rate is higher");
+    }
+    else {
+      $p2rate.addClass('hi');
+      $p1rate.addClass('lo');
+      hirate = p2rate;
+      lorate = p1rate;
+      log("p2rate is higher");
+    }
+
+    // Calculate difference (A-B)
+    rateDiff = Number(hirate - lorate);
+
+    $result.text(rateDiff);
+
+    // Choose lookup table based on higher score
+    // Find race based on difference in scores
+
+  }
+
+
 });

@@ -61,43 +61,94 @@
         </section>
       </div>
 
-
       <div id="race-calculator">
         <header>
           <h2>
             Race Calculator
           </h2>
-          <h3>
-            Enter player Fargo ratings
-          </h3>
         </header>
-        <form>
-          <div class="fieldset">
-            <label for="player1">Player 1</label>
-            <input
-              type="number"
-              id="player1"
-              name="player1"
-              min="0"
-              max="999"
-              step="1"
-              value=""
-            >
-          </div>
-          <div class="fieldset">
-            <label for="player2">Player 2</label>
-            <input
-              type="number"
-              id="player2"
-              name="player2"
-              min="0"
-              max="999"
-              step="1"
-              value=""
-            >
-          </div>
-          <!-- <button type="submit">Calculate</button> -->
-      </div>
+        <div class="form">
+          <legend>
+            Enter Fargo rating for each player
+          </legend>
+          <table class="entry-fields">
+            <tr class="fieldset">
+              <th>
+                &nbsp;
+              </th>
+              <th>
+                Rating
+              </th>
+              <th>
+                Race
+              </th>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="player1">Player 1</label>
+              </td>
+              <td>
+                <input
+                  id="player1"
+                  name="player1"
+                  type="number"
+                  min="0"
+                  max="999"
+                  maxlength="3"
+                  step="1"
+                  value=""
+                >
+              </td>
+              <td>
+                <input
+                  id="player1race"
+                  disabled="disabled"
+                  type="number"
+                  min="0"
+                  max="9"
+                  maxlength="1"
+                  value=""
+                >
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="player2">Player 2</label>
+              </td>
+              <td>
+                <input
+                  id="player2"
+                  name="player2"
+                  type="number"
+                  min="0"
+                  max="999"
+                  maxlength="3"
+                  step="1"
+                  value=""
+                >
+              </td>
+              <td>
+                <input
+                  id="player2race"
+                  disabled="disabled"
+                  type="number"
+                  min="0"
+                  max="9"
+                  maxlength="1"
+                  value=""
+                >
+              </td>
+            </tr>
+            <tr>
+              <td colspan="3">
+                <!-- Button doesn't do anything except take focus and blur input fields -->
+                <button type="submit">Calculate</button>
+              </td>
+            </tr>
+          </table>
+        </div>
 
     </main>
 
