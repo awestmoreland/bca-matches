@@ -100,15 +100,15 @@ $(function () {
 
     // Choose higher rating
     if (p1rate >= p2rate) { // if ratings are equal, use p1rate
-      $p1rate.addClass('hi');
-      $p2rate.addClass('lo');
+      $p1rate.attr('class', 'hi');
+      $p2rate.attr('class', 'lo');
       hirate = p1rate;
       lorate = p2rate;
       console.log("p1rate is higher");
     }
     else {
-      $p2rate.addClass('hi');
-      $p1rate.addClass('lo');
+      $p2rate.attr('class', 'hi');
+      $p1rate.attr('class', 'lo');
       hirate = p2rate;
       lorate = p1rate;
       log("p2rate is higher");
