@@ -107,42 +107,9 @@ $(function () {
     }
   }
 
-  // var raceData = {
-  //   0: { // hi rating >= this
-  //     0: { 2, 2}, // rating diff >= this
-  //     67: { 3, 2},
-  //     113: { 4, 2}
-  //   },
-  //   300: {
-  //     0: { 3, 3},
-  //     68: { 3, 2},
-  //     113: { 4, 2},
-  //     148: { 5, 2}
-  //   },
-  //   400: {
-  //     0: { 4, 4},
-  //     46: { 4, 3},
-  //     81: { 5, 3},
-  //     148: { 5, 2},
-  //     176: { 6, 2}
-  //   },
-  //   500: {
-  //     0: { 5, 5},
-  //     35: { 5, 4},
-  //     63: { 6, 4},
-  //     109: { 6, 3},
-  //     132: { 7, 3},
-  //     153: { 8, 3},
-  //     200: { 7, 2},
-  //     220: { 8, 2}
-  //   }
-  // }
-
   var $raceCalc = $('#race-calculator');
   var $p1rate = $('#player1', $raceCalc);
-  var $p1race = $('#player1race', $raceCalc); // read-only field for result
   var $p2rate = $('#player2', $raceCalc);
-  var $p2race = $('#player2race', $raceCalc); // read-only field for result
 
   // On-change, call raceCalc()
   $p1rate.on('change', raceCalc);
@@ -178,32 +145,31 @@ $(function () {
 
     // Calculate difference (A-B)
     var rateDiff = Number(hirate - lorate);
-    var race = "test";
+    var race;
 
     // Loop through object to find the first key that is greater than or equal to the rating difference
     for (rateLevel in raceData) {
       if (Number(rateLevel >= hirate)) {
-        return;
+        // first array key is zero, so for loop should always run at least once
+        break;
       }
       else {
         for (diffRange in raceData[rateLevel]) {
           if (Number(diffRange > rateDiff)) {
-            return;
+            // all arrays have first key of zero, so for loop should always run at least once
+            break;
           }
           else {
-            console.log(raceData[rateLevel][diffRange]);
+            // race will get value assigned multiple times
             race = raceData[rateLevel][diffRange];
           }
         }
       }
     };
 
-    // console.log('next');
-    // console.log(race);
-
-
-    // Choose lookup table based on higher score
-    // Find race based on difference in scores
+    // Split final value of race into hi/lo race and write to screen
+    $('tr.hi .playerRace').val(race[0]);
+    $('tr.lo .playerRace').val(race[1]);
 
   }
 
