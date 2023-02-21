@@ -178,30 +178,28 @@ $(function () {
 
     // Calculate difference (A-B)
     var rateDiff = Number(hirate - lorate);
-    var race = [];
+    var race = "test";
 
     // Loop through object to find the first key that is greater than or equal to the rating difference
     for (rateLevel in raceData) {
-      console.log(hirate + " > " + rateLevel + " = " + Number(hirate > rateLevel));
       if (Number(rateLevel >= hirate)) {
         return;
       }
       else {
         for (diffRange in raceData[rateLevel]) {
-          // console.log(diffRange);
-          console.log(raceData[rateLevel][diffRange]);
-          if (Number(raceData[rateLevel][diffRange] > rateDiff)) {
+          if (Number(diffRange > rateDiff)) {
             return;
           }
           else {
-            // console.log(raceData[rateLevel][diffRange]);
+            console.log(raceData[rateLevel][diffRange]);
             race = raceData[rateLevel][diffRange];
           }
         }
       }
     };
 
-    console.log(race);
+    // console.log('next');
+    // console.log(race);
 
 
     // Choose lookup table based on higher score
