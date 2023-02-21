@@ -76,6 +76,68 @@ $(function () {
   // Calculate race
   // ==========================================
 
+  var raceData = {
+    0: { // hi rating >= this
+      0: [2, 2], // rating diff >= this
+      67: [3, 2],
+      113: [4, 2]
+    },
+    300: {
+      0: [3, 3],
+      68: [3, 2],
+      113: [4, 2],
+      148: [5, 2]
+    },
+    400: {
+      0: [4, 4],
+      46: [4, 3],
+      81: [5, 3],
+      148: [5, 2],
+      176: [6, 2]
+    },
+    500: {
+      0: [5, 5],
+      35: [5, 4],
+      63: [6, 4],
+      109: [6, 3],
+      132: [7, 3],
+      153: [8, 3],
+      200: [7, 2],
+      220: [8, 2]
+    }
+  }
+
+  // var raceData = {
+  //   0: { // hi rating >= this
+  //     0: { 2, 2}, // rating diff >= this
+  //     67: { 3, 2},
+  //     113: { 4, 2}
+  //   },
+  //   300: {
+  //     0: { 3, 3},
+  //     68: { 3, 2},
+  //     113: { 4, 2},
+  //     148: { 5, 2}
+  //   },
+  //   400: {
+  //     0: { 4, 4},
+  //     46: { 4, 3},
+  //     81: { 5, 3},
+  //     148: { 5, 2},
+  //     176: { 6, 2}
+  //   },
+  //   500: {
+  //     0: { 5, 5},
+  //     35: { 5, 4},
+  //     63: { 6, 4},
+  //     109: { 6, 3},
+  //     132: { 7, 3},
+  //     153: { 8, 3},
+  //     200: { 7, 2},
+  //     220: { 8, 2}
+  //   }
+  // }
+
   var $raceCalc = $('#race-calculator');
   var $p1rate = $('#player1', $raceCalc);
   var $p1race = $('#player1race', $raceCalc); // read-only field for result
@@ -95,8 +157,8 @@ $(function () {
     }
 
     // Get player ratings
-    p1rate = $p1rate.val();
-    p2rate = $p2rate.val();
+    p1rate = Number($p1rate.val());
+    p2rate = Number($p2rate.val());
 
     // Choose higher rating
     if (p1rate >= p2rate) { // if ratings are equal, use p1rate
@@ -104,18 +166,42 @@ $(function () {
       $p2rate.closest('tr').attr('class', 'lo');
       hirate = p1rate;
       lorate = p2rate;
-      console.log("p1rate is higher");
+      // console.log("p1rate is higher");
     }
     else {
       $p2rate.closest('tr').attr('class', 'hi');
       $p1rate.closest('tr').attr('class', 'lo');
       hirate = p2rate;
       lorate = p1rate;
-      log("p2rate is higher");
+      // log("p2rate is higher");
     }
 
     // Calculate difference (A-B)
-    rateDiff = Number(hirate - lorate);
+    var rateDiff = Number(hirate - lorate);
+    var race = [];
+
+    // Loop through object to find the first key that is greater than or equal to the rating difference
+    for (rateLevel in raceData) {
+      console.log(hirate + " > " + rateLevel + " = " + Number(hirate > rateLevel));
+      if (Number(rateLevel >= hirate)) {
+        return;
+      }
+      else {
+        for (diffRange in raceData[rateLevel]) {
+          // console.log(diffRange);
+          console.log(raceData[rateLevel][diffRange]);
+          if (Number(raceData[rateLevel][diffRange] > rateDiff)) {
+            return;
+          }
+          else {
+            // console.log(raceData[rateLevel][diffRange]);
+            race = raceData[rateLevel][diffRange];
+          }
+        }
+      }
+    };
+
+    console.log(race);
 
 
     // Choose lookup table based on higher score
