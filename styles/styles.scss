@@ -17,6 +17,17 @@ body {
   }
 }
 
+main {
+  font-size: 2.25em;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  @media (min-width: 641px) {
+    font-size: 3.5em;
+  }
+}
+
+
 footer {
   padding: 3em 1.5em 1.5em;
   p {
@@ -38,111 +49,172 @@ h1 {
   display: none;
 }
 
-section {
-  padding: 1em;
-  border-bottom: solid 1px #ccc;
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    &:after {
-      content: '';
-      width: 0;
-      height: 0;
-      border: solid 0.75em transparent;
-      border-left-color: inherit;
-      border-right: none;
-      transform: rotate(90deg);
-      transition: transform 0.25s ease-in-out;
-    }
-    &.expanded {
-      &::after {
-        transform: rotate(-90deg);
-      }
-    }
-  }
-}
-
-
-table {
-  width: 100%;
-  th,
-  td
-  {
-    white-space: nowrap;
-    text-align: left;
-    &:nth-child(n+2) {
-      padding: 0 1em;
-    }
-  }
-  th {
-    font-weight: bold;
-  }
-  td[class^="location"] {
-    &::before {
-      display: inline-block;
-      margin-right: 0.5em;
-      color: blue;
-    }
-    &.location-west::before {
-      content: '\2190';
-      color: blue;
-    }
-    &.location-east::before {
-      content: '\2192';
-      color: red;
-    }
-    &.location-tbd::before {
-      content: '\2191';
-    }
-  }
-}
-
 #season-data {
   display: none;
 }
 
-#season {
-  font-size: 2.25em;
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  @media (min-width: 641px) {
-    font-size: 3.5em;
-  }
-}
 
-.weeks {
-  display: none;
-  .expanded ~ & {
+#season {
+
+  margin-bottom: 3em;
+
+  section {
+    padding: 1em;
+    border-bottom: solid 1px #ccc;
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      &:after {
+        content: '';
+        width: 0;
+        height: 0;
+        border: solid 0.75em transparent;
+        border-left-color: inherit;
+        border-right: none;
+        transform: rotate(90deg);
+        transition: transform 0.25s ease-in-out;
+      }
+      &.expanded {
+        &::after {
+          transform: rotate(-90deg);
+        }
+      }
+    }
+  }
+
+
+  table {
+    width: 100%;
+    th,
+    td
+    {
+      white-space: nowrap;
+      text-align: left;
+      &:nth-child(n+2) {
+        padding: 0 1em;
+      }
+    }
+    th {
+      font-weight: bold;
+    }
+    td[class^="location"] {
+      &::before {
+        display: inline-block;
+        margin-right: 0.5em;
+        color: blue;
+      }
+      &.location-west::before {
+        content: '\2190';
+        color: blue;
+      }
+      &.location-east::before {
+        content: '\2192';
+        color: red;
+      }
+      &.location-tbd::before {
+        content: '\2191';
+      }
+    }
+  }
+
+  .weeks {
+    display: none;
+  }
+  .expanded ~ .weeks {
     display: block;
   }
-}
-.week {
-  &.past-week {
+  .week {
+    &.past-week {
+    }
+    &.future-week {
+    }
   }
-  &.future-week {
+
+  .card-header {
+    background: rgba(0,0,0,0.15);
+    padding: 0.5em 1em;
+    margin: 0.5em -1em;
+    font-weight: bold;
   }
+
+  #archive {
+    // background: #f5f5f5;
+  }
+  #next {
+  }
+  #future {
+    // background: lightblue;
+  }
+
+} // end #season
+
+
+
+#race-calculator {
+
+  text-align: center;
+  padding-block: 2em;
+  background: lightblue;
+
+  h2 {
+    margin-top: 0;
+  }
+
+  .form { // fake form
+    legend {
+    }
+    .entry-fields {
+      margin-inline: auto;
+    }
+    th, td {
+      padding: 0;
+      margin: 0;
+    }
+    th {
+      padding-block: 1em 0.25em;
+    }
+    td {
+      padding-block: 0.25em;
+      &[colspan] {
+        padding: 0.5em 0.25em 0 0.5em;
+      }
+    }
+    label {
+      font-size: 1.25em;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    input {
+      font-size: 1.5em;
+      &[id] {
+        margin-inline: 0.5em 0.25em;
+      }
+      &.playerRace {
+        text-align: center;
+      }
+    }
+
+    // Hide up/down arrows
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      /* display: none; <- Crashes Chrome on hover */
+      -webkit-appearance: none;
+      margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+    }
+    input[type=number] {
+      -moz-appearance:textfield; /* Firefox */
+    }
+
+    button {
+      width: 100%;
+      font-size: 0.75em;
+      line-height: 2.25;
+      text-transform: uppercase;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
+
 }
-
-.card-header {
-  background: rgba(0,0,0,0.15);
-  padding: 0.5em 1em;
-  margin: 0.5em -1em;
-  font-weight: bold;
-}
-
-
-#archive {
-  // background: #f5f5f5;
-}
-#next {
-}
-#future {
-  // background: lightblue;
-}
-
-
-
-

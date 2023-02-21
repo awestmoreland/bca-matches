@@ -30,34 +30,129 @@
 
     <div id="season-data"></div>
 
-    <div id="season">
-      <section id="archive">
+    <main>
+
+      <div id="season">
+        <section id="archive">
+          <header>
+            <h2>Previous Matches</h2>
+          </header>
+          <div class="weeks">
+
+          </div>
+        </section>
+
+        <section id="next">
+          <header class="expanded">
+            <h2>Latest Match</h2>
+          </header>
+          <div class="weeks">
+
+          </div>
+        </section>
+
+        <section id="future">
+          <header>
+            <h2>Upcoming Matches</h2>
+          </header>
+          <div class="weeks">
+
+          </div>
+        </section>
+      </div>
+
+      <div id="race-calculator">
         <header>
-          <h2>Previous Matches</h2>
+          <h2>
+            Match Race Calculator
+          </h2>
         </header>
-        <div class="weeks">
+        <div class="form">
+          <legend>
+            Enter Fargo rating for each player
+          </legend>
+          <table class="entry-fields">
 
+            <tr>
+              <th>
+                &nbsp;
+              </th>
+              <th>
+                Rating
+              </th>
+              <th>
+                Race
+              </th>
+            </tr>
+
+            <tr>
+              <td>
+                <label for="player1">Player 1</label>
+              </td>
+              <td>
+                <input
+                  id="player1"
+                  name="player1"
+                  type="number"
+                  min="0"
+                  max="999"
+                  maxlength="3"
+                  step="1"
+                  value=""
+                >
+              </td>
+              <td>
+                <input
+                  class="playerRace"
+                  disabled="disabled"
+                  type="number"
+                  min="0"
+                  max="9"
+                  maxlength="1"
+                  value=""
+                >
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="player2">Player 2</label>
+              </td>
+              <td>
+                <input
+                  id="player2"
+                  name="player2"
+                  type="number"
+                  min="0"
+                  max="999"
+                  maxlength="3"
+                  step="1"
+                  value=""
+                >
+              </td>
+              <td>
+                <input
+                  class="playerRace"
+                  disabled="disabled"
+                  type="number"
+                  min="0"
+                  max="9"
+                  maxlength="1"
+                  value=""
+                >
+              </td>
+            </tr>
+
+            <tr>
+              <td>&nbsp;</td>
+              <td colspan="2">
+                <!-- Button doesn't do anything except take focus and blur input fields -->
+                <button type="submit">Calculate</button>
+              </td>
+            </tr>
+          </table>
         </div>
-      </section>
 
-      <section id="next">
-        <header class="expanded">
-          <h2>Latest Match</h2>
-        </header>
-        <div class="weeks">
-
-        </div>
-      </section>
-
-      <section id="future">
-        <header>
-          <h2>Upcoming Matches</h2>
-        </header>
-        <div class="weeks">
-
-        </div>
-      </section>
-    </div>
+    </main>
 
     <script
       src="https://code.jquery.com/jquery-3.6.3.min.js"

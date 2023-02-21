@@ -21,6 +21,18 @@ body {
   }
 }
 
+main {
+  font-size: 2.25em;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+@media (min-width: 641px) {
+  main {
+    font-size: 3.5em;
+  }
+}
+
 footer {
   padding: 3em 1.5em 1.5em;
 }
@@ -44,17 +56,24 @@ h1 {
   display: none;
 }
 
-section {
+#season-data {
+  display: none;
+}
+
+#season {
+  margin-bottom: 3em;
+}
+#season section {
   padding: 1em;
   border-bottom: solid 1px #ccc;
 }
-section header {
+#season section header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
 }
-section header:after {
+#season section header:after {
   content: "";
   width: 0;
   height: 0;
@@ -64,70 +83,106 @@ section header:after {
   transform: rotate(90deg);
   transition: transform 0.25s ease-in-out;
 }
-section header.expanded::after {
+#season section header.expanded::after {
   transform: rotate(-90deg);
 }
-
-table {
+#season table {
   width: 100%;
 }
-table th,
-table td {
+#season table th,
+#season table td {
   white-space: nowrap;
   text-align: left;
 }
-table th:nth-child(n+2),
-table td:nth-child(n+2) {
+#season table th:nth-child(n+2),
+#season table td:nth-child(n+2) {
   padding: 0 1em;
 }
-table th {
+#season table th {
   font-weight: bold;
 }
-table td[class^=location]::before {
+#season table td[class^=location]::before {
   display: inline-block;
   margin-right: 0.5em;
   color: blue;
 }
-table td[class^=location].location-west::before {
+#season table td[class^=location].location-west::before {
   content: "←";
   color: blue;
 }
-table td[class^=location].location-east::before {
+#season table td[class^=location].location-east::before {
   content: "→";
   color: red;
 }
-table td[class^=location].location-tbd::before {
+#season table td[class^=location].location-tbd::before {
   content: "↑";
 }
-
-#season-data {
+#season .weeks {
   display: none;
 }
-
-#season {
-  font-size: 2.25em;
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-}
-@media (min-width: 641px) {
-  #season {
-    font-size: 3.5em;
-  }
-}
-
-.weeks {
-  display: none;
-}
-.expanded ~ .weeks {
+#season .expanded ~ .weeks {
   display: block;
 }
-
-.card-header {
+#season .card-header {
   background: rgba(0, 0, 0, 0.15);
   padding: 0.5em 1em;
   margin: 0.5em -1em;
   font-weight: bold;
 }
+#race-calculator {
+  text-align: center;
+  padding-block: 2em;
+  background: lightblue;
+}
+#race-calculator h2 {
+  margin-top: 0;
+}
+#race-calculator .form .entry-fields {
+  margin-inline: auto;
+}
+#race-calculator .form th, #race-calculator .form td {
+  padding: 0;
+  margin: 0;
+}
+#race-calculator .form th {
+  padding-block: 1em 0.25em;
+}
+#race-calculator .form td {
+  padding-block: 0.25em;
+}
+#race-calculator .form td[colspan] {
+  padding: 0.5em 0.25em 0 0.5em;
+}
+#race-calculator .form label {
+  font-size: 1.25em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+#race-calculator .form input {
+  font-size: 1.5em;
+}
+#race-calculator .form input[id] {
+  margin-inline: 0.5em 0.25em;
+}
+#race-calculator .form input.playerRace {
+  text-align: center;
+}
+#race-calculator .form input::-webkit-outer-spin-button,
+#race-calculator .form input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+#race-calculator .form input[type=number] {
+  -moz-appearance: textfield; /* Firefox */
+}
+#race-calculator .form button {
+  width: 100%;
+  font-size: 0.75em;
+  line-height: 2.25;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+}
 
-/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22styles.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22;AAAA;AAAA;EAGE;EACA;EACA;;;AAGF;EACE;EACA;;AACA;EAHF;IAII;;;AAEF;EANF;IAOI;;;;AAIJ;EACE;;AACA;EACE;;AACA;EACE;;AAGJ;EARF;IASI;IACA;;EACA;IACE;;;;AAKN;EACE;;;AAGF;EACE;EACA;;AACA;EACE;EACA;EACA;EACA;;AACA;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAGA;EACE;;;AAOR;EACE;;AACA;AAAA;EAGE;EACA;;AACA;AAAA;EACE;;AAGJ;EACE;;AAGA;EACE;EACA;EACA;;AAEF;EACE;EACA;;AAEF;EACE;EACA;;AAEF;EACE;;;AAKN;EACE;;;AAGF;EACE;EACA;EACA;EACA;;AACA;EALF;IAMI;;;;AAIJ;EACE;;AACA;EACE;;;AAUJ;EACE;EACA;EACA;EACA%22,%22file%22:%22styles.css%22%7D */
+/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22styles.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22;AAAA;AAAA;EAGE;EACA;EACA;;;AAGF;EACE;EACA;;AACA;EAHF;IAII;;;AAEF;EANF;IAOI;;;;AAIJ;EACE;EACA;EACA;EACA;;AACA;EALF;IAMI;;;;AAKJ;EACE;;AACA;EACE;;AACA;EACE;;AAGJ;EARF;IASI;IACA;;EACA;IACE;;;;AAKN;EACE;;;AAGF;EACE;;;AAIF;EAEE;;AAEA;EACE;EACA;;AACA;EACE;EACA;EACA;EACA;;AACA;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AAGA;EACE;;AAOR;EACE;;AACA;AAAA;EAGE;EACA;;AACA;AAAA;EACE;;AAGJ;EACE;;AAGA;EACE;EACA;EACA;;AAEF;EACE;EACA;;AAEF;EACE;EACA;;AAEF;EACE;;AAKN;EACE;;AAEF;EACE;;AASF;EACE;EACA;EACA;EACA;;AAgBJ;EAEE;EACA;EACA;;AAEA;EACE;;AAMA;EACE;;AAEF;EACE;EACA;;AAEF;EACE;;AAEF;EACE;;AACA;EACE;;AAGJ;EACE;EACA;EACA;;AAEF;EACE;;AACA;EACE;;AAEF;EACE;;AAKJ;AAAA;AAEE;EACA;EACA;;AAEF;EACE;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA%22,%22file%22:%22styles.css%22%7D */
