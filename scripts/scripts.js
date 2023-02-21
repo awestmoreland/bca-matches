@@ -100,15 +100,15 @@ $(function () {
 
     // Choose higher rating
     if (p1rate >= p2rate) { // if ratings are equal, use p1rate
-      $p1rate.attr('class', 'hi');
-      $p2rate.attr('class', 'lo');
+      $p1rate.closest('tr').attr('class', 'hi');
+      $p2rate.closest('tr').attr('class', 'lo');
       hirate = p1rate;
       lorate = p2rate;
       console.log("p1rate is higher");
     }
     else {
-      $p2rate.attr('class', 'hi');
-      $p1rate.attr('class', 'lo');
+      $p2rate.closest('tr').attr('class', 'hi');
+      $p1rate.closest('tr').attr('class', 'lo');
       hirate = p2rate;
       lorate = p1rate;
       log("p2rate is higher");
@@ -117,7 +117,6 @@ $(function () {
     // Calculate difference (A-B)
     rateDiff = Number(hirate - lorate);
 
-    $result.text(rateDiff);
 
     // Choose lookup table based on higher score
     // Find race based on difference in scores
